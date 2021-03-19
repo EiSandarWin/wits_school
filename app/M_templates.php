@@ -10,7 +10,7 @@ class M_templates extends Model
     	'name'
     ];
 
-     public function m_template_detailes()
+     public function m_template_details()
     {
         return $this->hasMany('App\m_template_details');
     }

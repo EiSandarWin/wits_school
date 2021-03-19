@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\M_templatesController;
 use App\Http\Controllers\M_template_detailsController;
+use App\Http\Controllers\M_branchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('m_template_details','M_template_detailsController');
     Route::resource('m_templates','M_templatesController');
+    Route::resource('m_branch','M_branchController');
 });

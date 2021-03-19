@@ -29,7 +29,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        
         $roles = Role::pluck('name','name')->all();
         return view('users.create',compact('roles'));
     }

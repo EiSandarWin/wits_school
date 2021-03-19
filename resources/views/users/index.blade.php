@@ -25,7 +25,9 @@
  <tr>
    <th>No</th>
    <th>Name</th>
+   <th>Name(かな）</th>
    <th>Email</th>
+   <th>Branch Name</th>
    <th>Roles</th>
    <th width="280px">Action</th>
  </tr>
@@ -33,7 +35,9 @@
   <tr>
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
+    <td>{{ $user->name_kana }}</td>
     <td>{{ $user->email }}</td>
+    <td>{{ $user->branch_id}}</td>
     <td>
       @if(!empty($user->getRoleNames()))
         @foreach($user->getRoleNames() as $v)
@@ -56,5 +60,5 @@
 {!! $data->render() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+<p class="text-center text-primary"><small>Wits.com</small></p>
 @endsection

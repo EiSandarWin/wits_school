@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMTemplateDetailsTable extends Migration
+class CreateMBranchTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateMTemplateDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_template_details', function (Blueprint $table) {
+        Schema::create('m_branch', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('template_id')->nullable();
-            $table->Integer('listno');
-            $table->string('description');
+            $table->string('name');
             $table->timestamps();
-
-            $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');
         });
     }
 
@@ -31,6 +27,6 @@ class CreateMTemplateDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_template_details');
+        Schema::dropIfExists('m_branch');
     }
 }

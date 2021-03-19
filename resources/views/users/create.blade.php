@@ -37,20 +37,46 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Name(かな):</strong>
+            {!! Form::text('name_kana', null, array('placeholder' => 'Name(かな)','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Email:</strong>
             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Password:</strong>
-            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+            <strong>Branch Name:</strong>
+            {!! Form::text('branch_id', null, array('placeholder' => 'Branch ID','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <label for="fileInput"> Branch Name</label>
+            <select class="form-control" name="branch_id">
+            @foreach($branches as $branch)
+            <option value="{{$branchid}}">{{$branch->name}}</option>
+            @endforeach
+            </select>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Confirm Password:</strong>
             {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <label for="fileInput"> Branch Name</label>
+            <select class="form-control" name="branch_id">
+            @foreach($branches as $branch)
+            <option value="{{$branch->id}}">{{$branch->name}}</option>
+            @endforeach
+            </select>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -66,5 +92,5 @@
 {!! Form::close() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+<p class="text-center text-primary"><small>Wits.com</small></p>
 @endsection

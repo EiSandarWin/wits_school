@@ -56,11 +56,12 @@ class M_template_detailsController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'template_id' => 'required',
+            
             'listno' => 'required',
             'description' => 'required',
+            
         ]);
-    
+        
         M_template_details::create($request->all());
     
         return redirect()->route('m_template_details.index')
@@ -99,7 +100,7 @@ class M_template_detailsController extends Controller
     public function update(Request $request, M_template_details $m_template_detail)
     {
          request()->validate([
-            'template_id' => 'required',
+            
             'listno' => 'required',
             'description' => 'required',
         ]);
