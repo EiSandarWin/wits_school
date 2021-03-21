@@ -49,18 +49,8 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Branch Name:</strong>
-            {!! Form::text('branch_id', null, array('placeholder' => 'Branch ID','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label for="fileInput"> Branch Name</label>
-            <select class="form-control" name="branch_id">
-            @foreach($branches as $branch)
-            <option value="{{$branchid}}">{{$branch->name}}</option>
-            @endforeach
-            </select>
+            <strong>Password:</strong>
+            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -69,6 +59,7 @@
             {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
         </div>
     </div>
+    
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <label for="fileInput"> Branch Name</label>

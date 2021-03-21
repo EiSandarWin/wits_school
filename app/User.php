@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'name_kana','email','branch_id', 'password',
+        'name', 'name_kana','email', 'password','branch_id',
     ];
 
     /**
@@ -41,6 +42,6 @@ class User extends Authenticatable
 
     public function branch()
     {
-        return $this->belongsTo('App/M_branch');
+        return $this->belongsTo('App\M_branch');
     }
 }

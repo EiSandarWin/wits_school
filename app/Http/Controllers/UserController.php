@@ -8,6 +8,7 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use App\M_branch;
     
 class UserController extends Controller
 {
@@ -30,9 +31,10 @@ class UserController extends Controller
      */
     public function create()
     {   
-        
+        $branches = M_branch::all();
+
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('users.create',compact('roles','branches'));
     }
     
     /**
@@ -47,6 +49,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
+            'branch_id' => 'required',
             'roles' => 'required'
         ]);
     
@@ -83,8 +86,9 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
+        $branches = M_branch::all();
     
-        return view('users.edit',compact('user','roles','userRole'));
+        return view('users.edit',compact('user','roles','userRole','branches'));
     }
     
     /**
@@ -100,6 +104,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
+            'branch_id' =>'required',
             'roles' => 'required'
         ]);
     

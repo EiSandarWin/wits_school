@@ -37,7 +37,7 @@
     <td>{{ $user->name }}</td>
     <td>{{ $user->name_kana }}</td>
     <td>{{ $user->email }}</td>
-    <td>{{ $user->branch_id}}</td>
+    <td>{{ $user->branch->name}}</td>
     <td>
       @if(!empty($user->getRoleNames()))
         @foreach($user->getRoleNames() as $v)

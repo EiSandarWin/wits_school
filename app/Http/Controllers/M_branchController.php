@@ -32,7 +32,7 @@ class M_branchController extends Controller
 
     public function index()
     {
-        $m_branches = M_branch::latest()->paginate(5);
+        $m_branches = M_branch::orderBy('id','asc')->paginate(5);
         return view('m_branch.index',compact('m_branches'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
         

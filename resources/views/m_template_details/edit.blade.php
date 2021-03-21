@@ -33,11 +33,15 @@
 
          <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Template ID:</strong>
-		            <input type="text" name="template_id" value="{{ $m_template_detail->template_id }}" class="form-control" placeholder="Template ID">
-		        </div>
-		    </div>
+                <div class="form-group">
+                    <label for="fileInput"> Template Name</label>
+                    <select class="form-control" name="template_id">
+                    @foreach($templates as $template)
+                    <option value="{{$template->id}}">{{$template->name}}</option>
+                    @endforeach
+                    </select>
+                </div>
+            </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>List No:</strong>
