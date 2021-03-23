@@ -34,7 +34,7 @@
 	    @foreach ($m_template_details as $m_template_detail)
 	    <tr>
             <td>{{ ++$i }}</td>
-	        <td>{{ $m_template_detail->m_templates->name }}</td>
+	        <td>{{ $m_template_detail->template->name }}</td>
 	        <td>{{ $m_template_detail->listno }}</td>
 	        <td>{{ $m_template_detail->description }}</td>
 	        <td>

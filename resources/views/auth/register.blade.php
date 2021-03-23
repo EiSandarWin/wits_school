@@ -75,9 +75,17 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="fileInput" class="col-md-4 col-form-label text-md-right"> Branch Name</label>
+                            <select class="form-control" name="branch_id">
+                            @foreach($branches as $branch)
+                            <option value="{{$branch->id}}">{{$branch->name}}</option>
+                            @endforeach
+                            </select>
+                        </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-7 mb-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>

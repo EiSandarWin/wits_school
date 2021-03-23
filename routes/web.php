@@ -20,11 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//auth
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/customer',function(){
+	return view('customer');
+});
 
+//admin
 Route::group(['middleware' => ['auth']], function() {
+	
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('m_template_details','M_template_detailsController');

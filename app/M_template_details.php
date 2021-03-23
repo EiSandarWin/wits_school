@@ -11,7 +11,7 @@ class M_template_details extends Model
     	'template_id','listno','description'
     ];
 
-    public function m_templates()
+    public function template()
     {
         return $this->belongsTo('App\M_templates');
     }

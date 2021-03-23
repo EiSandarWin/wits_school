@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\M_templates;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\M_template_details;  
 
 
 
@@ -30,7 +31,7 @@ class M_templatesController extends Controller
      */
     public function index()
     {
-        $m_templates = M_templates::latest()->paginate(5);
+        $m_templates = M_templates::orderBy('id','asc')->paginate(5);
         return view('m_templates.index',compact('m_templates'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
