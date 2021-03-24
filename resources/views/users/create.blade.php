@@ -37,8 +37,8 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name(かな):</strong>
-            {!! Form::text('name_kana', null, array('placeholder' => 'Name(かな)','class' => 'form-control')) !!}
+            <strong>Name(カナ):</strong>
+            {!! Form::text('name_kana', null, array('placeholder' => 'Name(カナ)','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

@@ -25,7 +25,7 @@
  <tr>
    <th>No</th>
    <th>Name</th>
-   <th>Name(かな）</th>
+   <th>Name(カナ）</th>
    <th>Email</th>
    <th>Branch Name</th>
    <th>Roles</th>

@@ -18,15 +18,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Template ID:</strong>
-                {{ $m_template_detail->m_template_id }}
+                {{ $m_template_detail->template->name }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>List No:</strong>
-                {{ $m_template_detail->listno }}
-            </div>
-        </div>
+        
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>

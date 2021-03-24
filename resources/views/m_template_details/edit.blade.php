@@ -42,12 +42,7 @@
                     </select>
                 </div>
             </div>
-		    <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>List No:</strong>
-                    <input type="text" name="listno" value="{{ $m_template_detail->listno }}" class="form-control" placeholder="list no">
-                </div>
-            </div>
+		    
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>

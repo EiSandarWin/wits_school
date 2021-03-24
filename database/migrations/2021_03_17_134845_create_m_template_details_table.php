@@ -16,7 +16,6 @@ class CreateMTemplateDetailsTable extends Migration
         Schema::create('m_template_details', function (Blueprint $table) {
             $table->id();
             $table->BigInteger('template_id')->unsigned();
-            $table->Integer('listno');
             $table->string('description');
             $table->timestamps();
 

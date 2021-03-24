@@ -23,9 +23,8 @@ Route::get('/', function () {
 //auth
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/customer',function(){
-	return view('customer');
-});
+Route::resource('/transaction','T_checklist_headerController');
+
 
 //admin
 Route::group(['middleware' => ['auth']], function() {
@@ -36,3 +35,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('m_templates','M_templatesController');
     Route::resource('m_branch','M_branchController');
 });
+
+//

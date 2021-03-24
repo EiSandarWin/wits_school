@@ -31,7 +31,7 @@ class M_template_detailsController extends Controller
      */
     public function index()
     {
-        $m_template_details = M_template_details::orderBy('id','asc')->paginate(5);
+        $m_template_details = M_template_details::orderBy('id','asc')->paginate(10);
         return view('m_template_details.index',compact('m_template_details'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -57,7 +57,6 @@ class M_template_detailsController extends Controller
     {
         request()->validate([
             'template_id' =>'required',
-            'listno' => 'required',
             'description' => 'required',
             
         ]);
@@ -102,7 +101,6 @@ class M_template_detailsController extends Controller
     {
          request()->validate([
             'template_id'=>'required',
-            'listno' => 'required',
             'description' => 'required',
         ]);
     

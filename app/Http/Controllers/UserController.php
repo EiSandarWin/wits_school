@@ -57,6 +57,7 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
     
         $user = User::create($input);
+        $user->assignBranch($request->input('branch_id'));
         $user->assignRole($request->input('roles'));
     
         return redirect()->route('users.index')

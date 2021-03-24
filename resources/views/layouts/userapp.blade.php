@@ -13,12 +13,45 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <style>
+        
+        table,th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        th, td{
+            padding: 15px;
+        }
+       
+        
+        
+
+        div#img-box{
+        border:3px solid #000;
+        width:500px;
+        }
+
+        div#btn-box{
+        position: fixed;
+        bottom :0px;
+        }
+        
+        .kbw-signature { width: 100%; height: 180px;}
+        #signaturePad canvas{
+        width: 100% !important;
+        height: auto;
+        }
+ 
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/customer') }}">
+                <a class="navbar-brand" href="{{ url('/transaction') }}">
                     Wits Private School(Customer Page)
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

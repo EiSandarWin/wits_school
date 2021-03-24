@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateTChecklistHeaderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,20 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('t_checklist_header', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('name');
-            $table->string('name_kana');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->BigInteger('template_id')->unsigned();
+            $table->string('user_name');
             $table->BigInteger('branch_id')->unsigned();
-            $table->rememberToken();
+            $table->string('student_name');
+            $table->string('partent_name');
             $table->timestamps();
 
+            $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');
+
             $table->foreign('branch_id')->references('id')->on('m_branch')->onDelete('cascade');
+            
+
         });
     }
 
@@ -35,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('t_checklist_header');
     }
 }

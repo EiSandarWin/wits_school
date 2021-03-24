@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 
+
 class RegisterController extends Controller
 {
     /*
@@ -57,7 +58,7 @@ class RegisterController extends Controller
             'name_kana' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'branch_id' => ['required'],
+            'branch_id' => 'required'
         ]);
     }
 
@@ -75,8 +76,9 @@ class RegisterController extends Controller
             'name_kana' => $data['name_kana'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'branch_id' => $branches['branch_id']
-        ]);
+            'branch_id' => $branches['branch_id'],
+        ])
+        ->with(compact('branches'));
         
         
     }
