@@ -25,8 +25,6 @@ class CreateTChecklistHeaderTable extends Migration
             $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');
 
             $table->foreign('branch_id')->references('id')->on('m_branch')->onDelete('cascade');
-            
-
         });
     }
 

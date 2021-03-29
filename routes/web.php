@@ -24,16 +24,17 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/transaction','T_checklist_headerController');
-
+Route::post('/checklist','T_checklist_headerController@checkListTemplate');
 
 //admin
 Route::group(['middleware' => ['auth']], function() {
-	
+
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('m_template_details','M_template_detailsController');
     Route::resource('m_templates','M_templatesController');
     Route::resource('m_branch','M_branchController');
+
 });
 
 //

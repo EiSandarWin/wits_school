@@ -13,6 +13,7 @@
         <style>
             html, body {
                 background-color: #fff;
+                background-image: url("img/wits.jpg");
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -28,6 +29,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                -webkit-text-fill-color: ivory;
             }
 
             .position-ref {
@@ -38,24 +40,28 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+
             }
 
             .content {
                 text-align: center;
+                -webkit-text-fill-color: ivory;
             }
 
             .title {
                 font-size: 84px;
+                -webkit-text-fill-color: ivory;
             }
 
             .links > a {
-                color: #636b6f;
+                color: ivory ;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                -webkit-text-decoration-color: ivory;
             }
 
             .m-b-md {
@@ -80,12 +86,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Wits School
+                <div class="title m-b-md ">
+                    <h1 >Wits School</h1>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
+
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>

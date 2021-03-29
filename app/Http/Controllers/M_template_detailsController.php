@@ -56,7 +56,8 @@ class M_template_detailsController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'template_id' =>'required',
+           
+            'template_id' => 'required',
             'description' => 'required',
             
         ]);
