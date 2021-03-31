@@ -24,7 +24,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/transaction','T_checklist_headerController');
+
 Route::post('/checklist','T_checklist_headerController@checkListTemplate');
+
 
 //admin
 Route::group(['middleware' => ['auth']], function() {

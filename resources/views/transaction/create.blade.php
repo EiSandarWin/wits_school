@@ -131,24 +131,71 @@
                 </div>
 
 
-                <div class="col-xs-9 col-sm-9 col-md-9 text-center mb-4">
-                    <button type="submit" class="btn btn-primary">Save</button>
+
+
+                <div class="wrapper ">
+
+                    <canvas id="signature-pad" class="signature-pad"  width=500 height=200></canvas>
                 </div>
+                <div>
 
-
-
+                    <button type="submit" class="btn btn-primary" id="save">Save</button>
+                    <button type="submit" class="btn btn-primary" id="clear">Clear</button>
+                </div>
             </form>
+
+                <script type="text/javascript">
+
+                    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+                        backgroundColor: 'rgba(255, 255, 255, 0)',
+                        penColor: 'rgb(0, 0, 0)'
+                    });
+                    var saveButton = document.getElementById('save');
+                    var cancelButton = document.getElementById('clear');
+
+                    saveButton.addEventListener('click', function (event) {
+                        var dataURL = canvas.toDataURL();
+                        // data = signaturePad.toDataURL('image/png');
+                         signaturePad.toDataURL("data:image/png;base64,signature");
+// Send data to server instead...
+                       // window.open(data);
+                    });
+
+                    cancelButton.addEventListener('click', function (event) {
+                        signaturePad.clear();
+                    });
+
+
+
+
+                </script>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
 
 
-    </div>
 
 </div>
 
 
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-</script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
 
 <script>
 
@@ -183,4 +230,8 @@
 </script>
 
 
-@endsection
+
+
+
+    @endsection
+

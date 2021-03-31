@@ -9,6 +9,7 @@ use App\M_templates;
 use App\M_branch;
 use App\T_checklist_header;
 use App\M_template_details;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -37,14 +38,37 @@ class T_checklist_headerController extends Controller
 
     public function store(Request $request)
     {
+
+
+
+        $folderPath = public_path('upload/');
+
+        $image_parts = explode(";base64,", $request->signed);
+
+        $image_type_aux = explode("image/", $image_parts[0]);
+
+        $image_type = $image_type_aux[1];
+
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $signature = uniqid() . '.'.$image_type;
+
+        $file = $folderPath . $signature;
+
+        file_put_contents($file, $image_base64);
+
+
         request()->validate([
             'template_id' =>'required',
             'branch_id' => 'required',
             'user_name' => 'required',
             'student_name' => 'required',
-            'parent_name' => 'required'
+            'parent_name' => 'required',
+            'signature' =>'required',
 
         ]);
+
+
 
         T_checklist_header::create($request->all());
 
@@ -59,4 +83,6 @@ class T_checklist_headerController extends Controller
 
         return Response($template_details->toArray());
     }
+
+
 }

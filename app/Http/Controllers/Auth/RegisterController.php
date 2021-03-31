@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\M_template_details;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\M_branch;
 
 
 
@@ -52,14 +55,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-       
+        $branches = M_branch::all();
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'name_kana' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'branch_id' => 'required'
-        ]);
+            'branch_id' => 'required',
+        ]) ->with(compact('branches'));
     }
 
     /**
@@ -76,10 +79,12 @@ class RegisterController extends Controller
             'name_kana' => $data['name_kana'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'branch_id' => $branches['branch_id'],
+            'branch_id' => $data['branch_id'],
         ])
         ->with(compact('branches'));
-        
-        
+
+
     }
+
+
 }

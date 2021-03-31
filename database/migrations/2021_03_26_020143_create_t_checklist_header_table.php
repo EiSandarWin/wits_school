@@ -20,6 +20,7 @@ class CreateTChecklistHeaderTable extends Migration
             $table->BigInteger('branch_id')->unsigned();
             $table->string('student_name');
             $table->string('parent_name');
+            $table->TEXT('signature');
             $table->timestamps();
 
             $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');
