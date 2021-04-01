@@ -9,6 +9,7 @@ use App\M_templates;
 use App\M_branch;
 use App\T_checklist_header;
 use App\M_template_details;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -43,7 +44,7 @@ class T_checklist_headerController extends Controller
 
         $folderPath = public_path('upload/');
 
-        $image_parts = explode(";base64,", $request->signed);
+        $image_parts = explode(";base64,", $request->signature);
 
         $image_type_aux = explode("image/", $image_parts[0]);
 
@@ -67,10 +68,10 @@ class T_checklist_headerController extends Controller
             'signature' =>'required',
 
         ]);
+        $requestData = $request->all();
+        $requestData['signature'] = $signature;
 
-
-
-        T_checklist_header::create($request->all());
+        T_checklist_header::create($requestData);
 
         return redirect()->route('transaction.create')
                         ->with('success','Student Data successfully Save.');

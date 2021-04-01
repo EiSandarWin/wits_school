@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12 border border-secondary">
 
-            <form action="{{ route('transaction.store') }}" method="POST">
+            <form action="{{ route('transaction.store') }}" id="signature_form" method="POST">
                 @csrf
 
                 <div class="form-group row">
@@ -138,37 +138,44 @@
                     <canvas id="signature-pad" class="signature-pad"  width=500 height=200></canvas>
                 </div>
                 <div>
-
-                    <button type="submit" class="btn btn-primary" id="save">Save</button>
-                    <button type="submit" class="btn btn-primary" id="clear">Clear</button>
+                    <input type="hidden" name="signature" id="signature">
                 </div>
             </form>
 
-                <script type="text/javascript">
+            <button type="button" class="btn btn-primary" id="save">Save</button>
+            <button type="button" class="btn btn-primary" id="clear">Clear</button>
 
-                    var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
-                        backgroundColor: 'rgba(255, 255, 255, 0)',
-                        penColor: 'rgb(0, 0, 0)'
-                    });
-                    var saveButton = document.getElementById('save');
-                    var cancelButton = document.getElementById('clear');
+            <script type="text/javascript">
 
-                    saveButton.addEventListener('click', function (event) {
-                        var dataURL = canvas.toDataURL();
-                        // data = signaturePad.toDataURL('image/png');
-                         signaturePad.toDataURL("data:image/png;base64,signature");
+                var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    penColor: 'rgb(0, 0, 0)'
+                });
+
+
+                var saveButton = document.getElementById('save');
+                var cancelButton = document.getElementById('clear');
+
+                saveButton.addEventListener('click', function (event) {
+                    // var dataURL = canvas.toDataURL();
+                    // data = signaturePad.toDataURL('image/png');
+                    const signature =  signaturePad.toDataURL("data:image/png;base64,signature");
 // Send data to server instead...
-                       // window.open(data);
-                    });
-
-                    cancelButton.addEventListener('click', function (event) {
-                        signaturePad.clear();
-                    });
+                   // window.open(data);
+                    $("#signature").val(signature)
+                    $("#signature_form").submit()
 
 
+                });
+
+                cancelButton.addEventListener('click', function (event) {
+                    signaturePad.clear();
+                });
 
 
-                </script>
+
+
+            </script>
         </div>
 
 

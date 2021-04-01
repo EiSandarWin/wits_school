@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "2",
         "laravelcollective/html": "^6.2",
+        "nicolaslopezj/searchable": "^1.13",
         "spatie/laravel-permission": "^4.0"
     },
     "require-dev": {

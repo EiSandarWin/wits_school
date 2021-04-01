@@ -1,7 +1,7 @@
 <?php
-    
+
 namespace App\Http\Controllers;
-    
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use App\M_branch;
-    
+
 class UserController extends Controller
 {
     /**
@@ -19,24 +19,24 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id','ASC')->paginate(5);
+        $data = User::orderBy('id','ASC')->paginate(10);
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $branches = M_branch::all();
 
         $roles = Role::pluck('name','name')->all();
         return view('users.create',compact('roles','branches'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,18 +52,18 @@ class UserController extends Controller
             'branch_id' => 'required',
             'roles' => 'required'
         ]);
-    
+
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-    
+
         $user = User::create($input);
         $user->assignBranch($request->input('branch_id'));
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')
                         ->with('success','User created successfully');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -75,7 +75,7 @@ class UserController extends Controller
         $user = User::find($id);
         return view('users.show',compact('user'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -88,10 +88,10 @@ class UserController extends Controller
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
         $branches = M_branch::all();
-    
+
         return view('users.edit',compact('user','roles','userRole','branches'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -108,24 +108,24 @@ class UserController extends Controller
             'branch_id' =>'required',
             'roles' => 'required'
         ]);
-    
+
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }else{
-            $input = array_except($input,array('password'));    
+            $input = array_except($input,array('password'));
         }
-    
+
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-    
+
         $user->assignRole($request->input('roles'));
-    
+
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *

@@ -32,10 +32,10 @@ class M_branchController extends Controller
 
     public function index()
     {
-        $m_branches = M_branch::orderBy('id','asc')->paginate(5);
+        $m_branches = M_branch::orderBy('id','asc')->paginate(10);
         return view('m_branch.index',compact('m_branches'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-        
+
     }
 
     /**
@@ -58,14 +58,14 @@ class M_branchController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            
+
             'name' => 'required',
-            
-            
+
+
         ]);
-        
+
         M_branch::create($request->all());
-    
+
         return redirect()->route('m_branch.index')
                         ->with('success','Branch created successfully.');
     }
@@ -102,13 +102,13 @@ class M_branchController extends Controller
     public function update(Request $request, M_branch $m_branch)
     {
         request()->validate([
-            
+
             'name' => 'required',
-            
+
         ]);
-    
+
         $m_branch->update($request->all());
-    
+
         return redirect()->route('m_branch.index')
                         ->with('success','Branch updated successfully');
     }
@@ -122,7 +122,7 @@ class M_branchController extends Controller
     public function destroy(M_branch $m_branch)
     {
         $m_branch->delete();
-    
+
         return redirect()->route('m_branch.index')
                         ->with('success','Branch deleted successfully');
     }
