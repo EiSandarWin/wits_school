@@ -81,12 +81,22 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="signature" class="col-md-3 col-form-label text-md-right">{{  __('Staff Signature')}}</label>
+                </div>
 
+                <div class="wrapper ">
+                    <canvas id="signature-pad1" class="signature-pad"  width=500 height=200></canvas>
+                </div>
+                <div>
+                    <input type="hidden" name="signature1" id="signature1">
+                </div>
+                <button type="button" class="btn-primary" id="clear1">Clear</button>
 
                 <div class="form-group row">
 
-                    <label for="fileInput" class="col-md-3 col-form-label text-md-right "> Branch Name</label>
-                    <div class="col-md-6">
+                    <label for="fileInput" class="col-md-3 col-form-label text-md-right mt-4"> Branch Name</label>
+                    <div class="col-md-6 mt-4">
                         <select class="form-control col-md-4" name="branch_id">
                         @foreach($branches as $branch)
                         <option value="{{$branch->id}}">{{$branch->name}}</option>
@@ -104,6 +114,21 @@
 
 
                         @error('student_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="student_name_kana" class="col-md-3 col-form-label text-md-right">{{  __('Student Name(カナ)')}}</label>
+
+                    <div class="col-md-6">
+                        <input id="student_name_kana" type="text" name="student_name_kana" placeholder="Student Name(カナ)">
+
+
+                        @error('student_name_kana')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -152,17 +177,28 @@
                     penColor: 'rgb(0, 0, 0)'
                 });
 
+                var signaturePad1 = new SignaturePad(document.getElementById('signature-pad1'), {
+                    backgroundColor: 'rgba(255, 255, 255, 0)',
+                    penColor: 'rgb(0, 0, 0)'
+                });
+
 
                 var saveButton = document.getElementById('save');
                 var cancelButton = document.getElementById('clear');
+                var cancelButton1 = document.getElementById('clear1');
+
 
                 saveButton.addEventListener('click', function (event) {
                     // var dataURL = canvas.toDataURL();
                     // data = signaturePad.toDataURL('image/png');
                     const signature =  signaturePad.toDataURL("data:image/png;base64,signature");
+                    const signature1 =  signaturePad1.toDataURL("data:image/png;base64,signature1");
+
+
 // Send data to server instead...
                    // window.open(data);
                     $("#signature").val(signature)
+                    $("#signature1").val(signature1)
                     $("#signature_form").submit()
 
 
@@ -172,10 +208,20 @@
                     signaturePad.clear();
                 });
 
+                cancelButton1.addEventListener('click', function (event) {
+                    signaturePad1.clear();
+                });
+
 
 
 
             </script>
+
+
+
+
+
+
         </div>
 
 
@@ -226,7 +272,7 @@
                             "<tr><td>" + template.text() + "</td>"+
 
                             "<td> <input type='checkbox' value='1'></td>"+
-                            "<td>" +  (i+1) + "</td>"+
+                            "<td>" +  data[i]["id"] + "</td>"+
                             "<td>" + data[i]["description"] + "</td></tr>"
 
                     }
@@ -235,6 +281,9 @@
         });
     }
 </script>
+
+
+
 
 
 

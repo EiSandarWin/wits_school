@@ -1,17 +1,17 @@
 <?php
-    
+
 namespace App\Http\Controllers;
 
-use App\M_template_details;  
+use App\M_template_details;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\M_templates;
 
 
 
-    
+
 class M_template_detailsController extends Controller
-{ 
+{
     /**
      * Display a listing of the resource.
      *
@@ -35,18 +35,18 @@ class M_template_detailsController extends Controller
         return view('m_template_details.index',compact('m_template_details'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $templates =M_templates::all();
         return view('m_template_details.create',compact('templates'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -56,18 +56,20 @@ class M_template_detailsController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-           
+
             'template_id' => 'required',
+
             'description' => 'required',
-            
+
         ]);
-        
+
         M_template_details::create($request->all());
-    
+
+
         return redirect()->route('m_template_details.index')
                         ->with('success','description created successfully.');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -78,7 +80,7 @@ class M_template_detailsController extends Controller
     {
         return view('m_template_details.show',compact('m_template_detail'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -86,11 +88,11 @@ class M_template_detailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(M_template_details $m_template_detail)
-    {   
+    {
         $templates =M_templates::all();
         return view('m_template_details.edit',compact('m_template_detail','templates'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -102,15 +104,16 @@ class M_template_detailsController extends Controller
     {
          request()->validate([
             'template_id'=>'required',
+
             'description' => 'required',
         ]);
-    
+
         $m_template_detail->update($request->all());
-    
+
         return redirect()->route('m_template_details.index')
                         ->with('success','description updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -120,7 +123,7 @@ class M_template_detailsController extends Controller
     public function destroy(M_template_details $m_template_detail)
     {
         $m_template_detail->delete();
-    
+
         return redirect()->route('m_template_details.index')
                         ->with('success','description deleted successfully');
     }

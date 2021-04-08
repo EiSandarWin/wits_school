@@ -15,7 +15,13 @@
 
 
     <div class="row">
-        
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Template ID:</strong>
+                {{ $m_template_detail->id }}
+            </div>
+        </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -23,7 +29,7 @@
                 {{ $m_template_detail->template->name }}
             </div>
         </div>
-        
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>

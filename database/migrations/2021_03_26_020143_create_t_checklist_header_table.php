@@ -17,8 +17,10 @@ class CreateTChecklistHeaderTable extends Migration
             $table->BigIncrements('id');
             $table->BigInteger('template_id')->unsigned();
             $table->string('user_name');
+            $table->TEXT('signature_staff');
             $table->BigInteger('branch_id')->unsigned();
             $table->string('student_name');
+            $table->string('student_name_kana');
             $table->string('parent_name');
             $table->TEXT('signature');
             $table->timestamps();

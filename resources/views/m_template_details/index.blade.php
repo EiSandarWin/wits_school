@@ -27,13 +27,15 @@
         <tr>
             <th>No</th>
             <th>Template Name</th>
+            <th>List  No</th>
             <th>Description</th>
             <th width="280px">Action</th>
         </tr>
 	    @foreach ($m_template_details as $m_template_detail)
 	    <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $m_template_detail->id }}</td>
 	        <td>{{ $m_template_detail->template->name }}</td>
+
 	        <td>{{ $m_template_detail->description }}</td>
 	        <td>
                 <form action="{{ route('m_template_details.destroy',$m_template_detail->id) }}" method="POST">

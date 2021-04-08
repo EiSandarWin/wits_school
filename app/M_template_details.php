@@ -18,6 +18,8 @@ class M_template_details extends Model
 
     public function checklists()
     {
-        return $this->hasMany('App\T_checklist_header');
+        return $this->belongsToMany('App\T_checklist_header','t_checklist_details')
+                    ->withPivot('checkflag')
+                    ->withTimestamps();
     }
 }
