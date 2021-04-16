@@ -271,7 +271,8 @@
                         tr = tr +
                             "<tr><td>" + template.text() + "</td>"+
 
-                            "<td> <input type='checkbox' value='1'></td>"+
+                            "<td> <input type='checkbox' name='checkflag'></td>"+
+
                             "<td>" +  data[i]["id"] + "</td>"+
                             "<td>" + data[i]["description"] + "</td></tr>"
 

@@ -11,6 +11,9 @@ use App\T_checklist_header;
 use App\M_template_details;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use App\T_checklist_details;
+
+
 
 
 
@@ -32,8 +35,9 @@ class T_checklist_headerController extends Controller
         $templates = M_templates::all();
         $template_details = M_template_details::all();
         $branches = M_branch::all();
+        $t_checklist = T_checklist_header::all();
 
-        return view('transaction.create',compact('template_details','branches','templates'));
+        return view('transaction.create',compact('template_details','branches','templates','t_checklist'));
     }
 
     public function store(Request $request)
@@ -41,38 +45,39 @@ class T_checklist_headerController extends Controller
 
 
 
-        $folderPath = public_path('upload/' );
-
-        $folderPath1 = public_path('staffupload/' );
+        $folderPath = public_path('studentupload/' );
 
         $image_parts = explode(";base64,", $request->signature);
 
-        $image1_parts = explode(";base64,", $request->signature1);
-
         $image_type_aux = explode("image/", $image_parts[0]);
-
-        $image1_type_aux = explode("image/", $image1_parts[0]);
 
         $image_type = $image_type_aux[1];
 
-        $image1_type = $image1_type_aux[1];
-
         $image_base64 = base64_decode($image_parts[1]);
-
-        $image1_base64 = base64_decode($image1_parts[1]);
 
         $signature = uniqid() . '.'.$image_type;
 
-        $signature1 = uniqid() . '.'.$image1_type;
-
         $file = $folderPath . $signature;
-
-        $file1 = $folderPath1 . $signature1;
 
         file_put_contents($file, $image_base64);
 
-        file_put_contents($file1, $image1_base64);
 
+
+        $folderPath1 = public_path('staffupload/' );
+
+        $image1_parts = explode(";base64,", $request->signature1);
+
+        $image1_type_aux = explode("image/", $image1_parts[0]);
+
+        $image1_type = $image1_type_aux[1];
+
+        $image1_base64 = base64_decode($image1_parts[1]);
+
+        $signature1 = uniqid() . '.'.$image1_type;
+
+        $file1 = $folderPath1 . $signature1;
+
+        file_put_contents($file1, $image1_base64);
 
         request()->validate([
             'template_id' =>'required',
@@ -90,7 +95,19 @@ class T_checklist_headerController extends Controller
         $requestData['signature'] = $signature;
         $requestData['signature_staff'] = $signature1;
 
-        T_checklist_header::create($requestData);
+
+
+
+
+
+
+        $t_checklist_details = new t_checklist_details();
+        $t_checklist_details->m_template_details_id = $request->input("template_details_id");
+        $t_checklist_details->checklist_id = $t_checklist->checklist_id;
+        $t_checklist_details->checkflag = $request->has('checkflag');
+
+
+        T_checklist_header::create($requestData,$t_checklist_details);
 
         return redirect()->route('transaction.create')
                         ->with('success','Student Data successfully Save.');

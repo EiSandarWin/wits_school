@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class M_template_details extends Model
 {
-	protected $table='M_template_details';
+	protected $table='m_template_details';
     protected $fillable=[
     	'template_id','description'
     ];

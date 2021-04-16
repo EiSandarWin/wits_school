@@ -27,7 +27,7 @@
         <tr>
             <th>No</th>
             <th>Template Name</th>
-            <th>List  No</th>
+
             <th>Description</th>
             <th width="280px">Action</th>
         </tr>
