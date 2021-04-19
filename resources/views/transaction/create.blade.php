@@ -199,6 +199,9 @@
                    // window.open(data);
                     $("#signature").val(signature)
                     $("#signature1").val(signature1)
+                    // $("#table_checklist input:checked").each(function (item) {
+                    //     console.log($(this).val())
+                    // })
                     $("#signature_form").submit()
 
 
@@ -271,7 +274,7 @@
                         tr = tr +
                             "<tr><td>" + template.text() + "</td>"+
 
-                            "<td> <input type='checkbox' name='checkflag'></td>"+
+                            "<td> <input type='checkbox' name='checkbox[]' value="+data[i]["id"]+"></td>"+
 
                             "<td>" +  data[i]["id"] + "</td>"+
                             "<td>" + data[i]["description"] + "</td></tr>"

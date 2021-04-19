@@ -25,8 +25,9 @@ class T_checklist_headerController extends Controller
         $templates = M_templates::all();
         $branches = M_branch::all();
         $template_details = M_template_details::all();
+        $t_checklist = T_checklist_header::all();
 
-        return view('transaction.create',compact('template_details','branches','templates'));
+        return view('transaction.create',compact('template_details','branches','templates','$t_checklist'));
     }
 
 
@@ -91,7 +92,7 @@ class T_checklist_headerController extends Controller
         ]);
 
         $requestData = $request->all();
-
+        $check_template_details = $request->input("checkbox");
         $requestData['signature'] = $signature;
         $requestData['signature_staff'] = $signature1;
 
@@ -101,13 +102,24 @@ class T_checklist_headerController extends Controller
 
 
 
-        $t_checklist_details = new t_checklist_details();
-        $t_checklist_details->m_template_details_id = $request->input("template_details_id");
-        $t_checklist_details->checklist_id = $t_checklist->checklist_id;
-        $t_checklist_details->checkflag = $request->has('checkflag');
+//
+//        $t_checklist_details = new t_checklist_details();
+//        $t_checklist_details->m_template_details_id = $request->merge([
+//            'm_template_details_id' =>implode(',',(array)$request->get('checkflag')) []);
+//        $t_checklist_details->checklist_id = $t_checklist->checklist_id;
+//        $t_checklist_details->checkflag = $request->merge([
+//            'checkflag' =>implode(',',(array)$request->get('checkflag'))
+//        ]);
 
 
-        T_checklist_header::create($requestData,$t_checklist_details);
+        $check_list_header = T_checklist_header::create($requestData);
+        $checklist_detail = array();
+        foreach ( $check_template_details as $value){
+// Code Here
+            $checklist_detail[] = array('checklist_id'=>$check_list_header->id,
+                'm_template_details_id'=>$value, 'checkflag'=>1);
+        }
+        T_checklist_details::insert($checklist_detail);
 
         return redirect()->route('transaction.create')
                         ->with('success','Student Data successfully Save.');
