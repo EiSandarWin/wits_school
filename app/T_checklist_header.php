@@ -16,4 +16,9 @@ class T_checklist_header extends Model
         return $this->belongsToMany('App\T_checklist_details','t_checklist_details');
 
     }
+
+    public function branch()
+    {
+        return $this->belongsTo('App\M_branch');
+    }
 }

@@ -23,6 +23,8 @@ Route::get('/', function () {
 //auth
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home','HomeController@searchlist');
+Route::post('/home', 'HomeController@search')->name('search.route');
 Route::resource('/transaction','T_checklist_headerController');
 
 Route::post('/checklist','T_checklist_headerController@checkListTemplate');

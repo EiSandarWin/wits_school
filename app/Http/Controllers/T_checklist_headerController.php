@@ -25,9 +25,11 @@ class T_checklist_headerController extends Controller
         $templates = M_templates::all();
         $branches = M_branch::all();
         $template_details = M_template_details::all();
-        $t_checklist = T_checklist_header::all();
 
-        return view('transaction.create',compact('template_details','branches','templates','$t_checklist'));
+
+
+
+        return view('transaction.create',compact('template_details','branches','templates'));
     }
 
 
@@ -36,9 +38,9 @@ class T_checklist_headerController extends Controller
         $templates = M_templates::all();
         $template_details = M_template_details::all();
         $branches = M_branch::all();
-        $t_checklist = T_checklist_header::all();
 
-        return view('transaction.create',compact('template_details','branches','templates','t_checklist'));
+
+        return view('transaction.create',compact('template_details','branches','templates'));
     }
 
     public function store(Request $request)
@@ -132,6 +134,11 @@ class T_checklist_headerController extends Controller
 
         return Response($template_details->toArray());
     }
+
+
+
+
+
 
 
 }
