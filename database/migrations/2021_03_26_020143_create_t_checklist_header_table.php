@@ -23,6 +23,7 @@ class CreateTChecklistHeaderTable extends Migration
             $table->string('student_name_kana');
             $table->string('parent_name');
             $table->TEXT('signature');
+            $table->DATE('check_date');
             $table->timestamps();
 
             $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');

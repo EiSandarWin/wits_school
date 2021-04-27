@@ -30,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $t_checklist_details = T_checklist_details::all();
         return view('/home');
 
     }
@@ -57,36 +58,11 @@ class HomeController extends Controller
     //    }
 
    // }
-    public function searchlist(){
-        $searchdata = T_checklist_header::all();
-        $branches = M_branch::all();
-        return view('/home',compact('searchdata','branches'));
-    }
-
-    public function search(Request $request){
-        $search = $request->search;
-        $branches = M_branch::all();
-
-        $searchdata=T_checklist_header::where('student_name','LIKE','%' .$search. '%')
-            ->get();
-
-        //dd($searchdata);
 
 
 
 
-        return view('/home',compact('searchdata','branches'));
 
-
-    }
-
-    public function destroy(T_checklist_details $t_checklist_details)
-    {
-        $t_checklist_details->delete();
-
-        return redirect()->route('home.searchlist')
-            ->with('success','Branch deleted successfully');
-    }
 
 
 }

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\T_checklist_details;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\True_;
 use Symfony\Component\Console\Input\Input;
+use App\T_checklist_header;
+use App\M_branch;
 
 class T_checklist_detailsController extends Controller
 {
@@ -15,7 +18,10 @@ class T_checklist_detailsController extends Controller
      */
     public function index()
     {
-        //
+        $t_checklist_details=T_checklist_details::all();
+        $t_checklist_header=T_checklist_header::all();
+
+        return view('detail',compact('t_checklist_details',$t_checklist_header));
     }
 
     /**
@@ -25,7 +31,9 @@ class T_checklist_detailsController extends Controller
      */
     public function create()
     {
-        //
+        $t_checklist_header = T_checklist_header::all();
+        $t_checklist_details=T_checklist_details::all();
+        return view('detail',compact('t_checklist_header','t_checklist_details'));
     }
 
     /**
@@ -49,7 +57,10 @@ class T_checklist_detailsController extends Controller
      */
     public function show(T_checklist_details $t_checklist_details)
     {
-        //
+
+        return view('detail',compact('t_checklist_details'));
+
+
     }
 
     /**
@@ -85,4 +96,6 @@ class T_checklist_detailsController extends Controller
     {
         //
     }
+
+
 }

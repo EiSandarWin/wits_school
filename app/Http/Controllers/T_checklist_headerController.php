@@ -12,6 +12,7 @@ use App\M_template_details;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\T_checklist_details;
+use DateTime;
 
 
 
@@ -81,6 +82,9 @@ class T_checklist_headerController extends Controller
         $file1 = $folderPath1 . $signature1;
 
         file_put_contents($file1, $image1_base64);
+        $dt = new DateTime;
+        $now -> updated_at = $dt->format('Y-m-d H:i'); //Fomat Date and time
+        $now = $request->check_data;
 
         request()->validate([
             'template_id' =>'required',
@@ -91,12 +95,16 @@ class T_checklist_headerController extends Controller
             'parent_name' => 'required',
 
 
+
         ]);
 
         $requestData = $request->all();
         $check_template_details = $request->input("checkbox");
         $requestData['signature'] = $signature;
         $requestData['signature_staff'] = $signature1;
+        $requestData['check_date'] = $now;
+
+
 
 
 
@@ -136,6 +144,36 @@ class T_checklist_headerController extends Controller
     }
 
 
+    public function searchlist(){
+        $searchdata = T_checklist_header::all();
+        $branches = M_branch::all();
+        return view('/home',compact('searchdata','branches'));
+    }
+
+    public function search(Request $request){
+        $search = $request->search;
+        $branches = M_branch::all();
+
+        $searchdata=T_checklist_header::where('student_name_kana','LIKE','%' .$search. '%')
+            ->get();
+
+        //dd($searchdata);
+
+
+
+
+        return view('/home',compact('searchdata','branches'));
+
+
+    }
+
+
+
+    public function show(T_checklist_header $t_checklist_header)
+    {
+        $t_checklist_details= T_checklist_details::all();
+        return view('detail',compact('t_checklist_details','t_checklist_header'));
+    }
 
 
 

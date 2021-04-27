@@ -10,8 +10,8 @@
             <form method="POST" action="{{ route('search.route') }}" class="searchbox" role="search">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <input type="text" name="search" class="search" id="search" placeholder="Name">
-                    <input type="submit" name="submit" class="submit" value="search" onclick="gettable()">
+                    <input type="text" name="search" class="search" id="search" placeholder="Name with kana">
+                    <input type="submit" name="submit" class="submit" value="search" >
 
 
                 </div>
@@ -43,7 +43,7 @@
 
                         <td>
 
-                            <button type="submit" class="btn btn-primary" href="">Detail</button>
+                            <a href="{{url('/detail')}}" class="btn btn-success btn-sm">Detail</a>
 
                         </td>
 
@@ -69,39 +69,5 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-<script >
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    function gettable(){
-
-        $('#search').on('keyup', function(){
-        var sear = $('#search').val();
-
-
-        $.ajax({
-
-            type:"POST",
-            url: '/search ',
-            data: {text: $('#search').val()},
-            success: function(data) {
-                $('search').html(data);
-                console.log(data);
-            }
-
-        });
-    }
-
-
-
-    });
-
-</script>
 
 @endsection

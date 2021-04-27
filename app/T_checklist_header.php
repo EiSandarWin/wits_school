@@ -8,12 +8,12 @@ class T_checklist_header extends Model
 {
 	protected $table = 't_checklist_header';
     protected $fillable =[
-    	'template_id','branch_id','user_name','signature_staff','student_name','student_name_kana','parent_name','signature'
+    	'template_id','branch_id','user_name','signature_staff','check_date','student_name','student_name_kana','parent_name','signature'
     ];
 
-    public function checklistdetails()
+    public function details()
     {
-        return $this->belongsToMany('App\T_checklist_details','t_checklist_details');
+        return $this->belongsToMany('App\T_checklist_details' );
 
     }
 

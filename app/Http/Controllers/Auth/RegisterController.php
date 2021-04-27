@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'branch_id' => 'required',
-        ]) ->with(compact('branches'));
+        ]) ->with(compact('branches',$branches));
     }
 
     /**
@@ -73,6 +73,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+
         $branches = M_branch::all();
         return User::create([
             'name' => $data['name'],
@@ -81,7 +83,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'branch_id' => $data['branch_id'],
         ])
-        ->with(compact('branches'));
+        ->with(compact('branches',$branches));
 
 
     }
