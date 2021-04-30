@@ -13,11 +13,11 @@
 
 
     <div class="row">
-        @foreach($t_checklist_details as $t_checklist_detail)
+        @foreach($t_checklist_header as $val)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Staff Name:</strong>
-                {{ $t_checklist_detail->header->user_name}}
+                {{ $val->user_name}}
             </div>
         </div>
 
@@ -30,8 +30,20 @@
                 <th>確認事項</th>
             </tr>
             </thead>
-        </table>
 
+            @foreach($t_checklist_details as $detail)
+                <tr>
+                    <td>a</td>
+                    <td><input type='checkbox' name='checkbox[]' value="1"></td>
+                    <td>b</td>
+                    <td>c</td>
+                </tr>
+
+
+            @endforeach
+
+
+        </table>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Staff signature:</strong>
@@ -42,21 +54,21 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Student Name:</strong>
-                {{ $t_checklist_detail->header->student_name }}
+                {{ $val->student_name }}
             </div>
         </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Student Name:</strong>
-                    {{ $t_checklist_detail->header->student_name_kana }}
+                    {{ $val->student_name_kana }}
                 </div>
             </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Parent Name:</strong>
-                {{ $t_checklist_detail->header->parent_name }}
+                {{ $val->parent_name }}
             </div>
         </div>
 

@@ -42,9 +42,9 @@
                         <td>{{$value->user_name}}</td>
 
                         <td>
-
-                            <a href="{{url('/detail')}}" class="btn btn-success btn-sm">Detail</a>
-
+                            <form action="{{url('t_checklist_header.show',$value->id)}}" method="POST">
+                            <a class="btn btn-success btn-sm" href="{{url('detail',$value->id)}}" >Detail</a>
+                            </form>
                         </td>
 
                     </tr>
@@ -64,7 +64,7 @@
 
                 You are logged in!
             </div>-->
-
+s
         </div>
     </div>
 </div>

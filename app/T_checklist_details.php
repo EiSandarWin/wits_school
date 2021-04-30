@@ -17,4 +17,10 @@ class T_checklist_details extends Model
 
     }
 
+    public function templates()
+    {
+        return $this->belongsToMany('App\M_template_details');
+    }
+
+
 }

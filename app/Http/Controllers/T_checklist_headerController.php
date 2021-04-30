@@ -171,8 +171,9 @@ class T_checklist_headerController extends Controller
 
     public function show(T_checklist_header $t_checklist_header)
     {
-        $t_checklist_details= T_checklist_details::all();
-        return view('detail',compact('t_checklist_details','t_checklist_header'));
+        $t_checklist_header= T_checklist_header::all();
+        $t_checklist_details=T_checklist_details::all();
+        return view('detail',compact('t_checklist_header','t_checklist_details'));
     }
 
 

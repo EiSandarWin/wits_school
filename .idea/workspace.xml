@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1852d935-ff16-4f94-8f36-f720362b2e5c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wits_school.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wits_school.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/M_template_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/M_template_details.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/T_checklist_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/T_checklist_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_020143_create_t_checklist_header_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_020143_create_t_checklist_header_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -175,7 +168,7 @@
       <updated>1619142953894</updated>
       <workItem from="1619142961290" duration="7642000" />
       <workItem from="1619155514711" duration="21171000" />
-      <workItem from="1619415462721" duration="9560000" />
+      <workItem from="1619415462721" duration="22185000" />
     </task>
     <servers />
   </component>
