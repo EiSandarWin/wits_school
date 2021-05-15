@@ -14,6 +14,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
+<style>
+
+    table,th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+
+    }
+    th, td{
+        padding: 15px;
+    }
+
+</style>
+
 <body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-dark">

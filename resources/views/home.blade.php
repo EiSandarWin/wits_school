@@ -14,7 +14,19 @@
                     <input type="submit" name="submit" class="submit" value="search" >
 
 
+                <div class="col-sm-3">
+                    {{ Form::date('start_date',null,['class'=>'form-control','placeholder'=>'Date']) }}
                 </div>
+                <div class="col-sm-3">
+                    {{ Form::date('end_date',null,['class'=>'form-control','placeholder'=>'Date']) }}
+                </div>
+
+                </div>
+
+
+
+
+
 
 
             <table class="table-bordered">
@@ -42,9 +54,10 @@
                         <td>{{$value->user_name}}</td>
 
                         <td>
-                            <form action="{{url('t_checklist_header.show',$value->id)}}" method="POST">
-                            <a class="btn btn-success btn-sm" href="{{url('detail',$value->id)}}" >Detail</a>
-                            </form>
+
+
+                            <a class="btn btn-success btn-sm" href="{{url('detail', $value->id)}}" >Detail</a>
+
                         </td>
 
                     </tr>
@@ -64,7 +77,7 @@
 
                 You are logged in!
             </div>-->
-s
+
         </div>
     </div>
 </div>

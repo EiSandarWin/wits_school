@@ -22,8 +22,8 @@ class M_template_details extends Model
 
     }
 
-    public function transactiondetail()
+    public function transactiondetails()
     {
-        return $this->belongsTo('App\T_checklist_details','m_template_details_id');
+        return $this->hasMany('App\T_checklist_details');
     }
 }

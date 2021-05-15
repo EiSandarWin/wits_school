@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="1852d935-ff16-4f94-8f36-f720362b2e5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/M_template_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/M_template_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/M_templates.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/M_templates.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/T_checklist_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_details.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/T_checklist_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_020143_create_t_checklist_header_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_30_125742_create_t_checklist_details.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,11 +152,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="D:/ESW/Redirect html" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ESW\Redirect html" />
       <recent name="C:\xampp\htdocs\wits_school\resources\views" />
     </key>
   </component>
@@ -168,7 +177,13 @@
       <updated>1619142953894</updated>
       <workItem from="1619142961290" duration="7642000" />
       <workItem from="1619155514711" duration="21171000" />
-      <workItem from="1619415462721" duration="22185000" />
+      <workItem from="1619415462721" duration="36481000" />
+      <workItem from="1620262061683" duration="1535000" />
+      <workItem from="1620263618639" duration="7051000" />
+      <workItem from="1620442479794" duration="19539000" />
+      <workItem from="1620635041727" duration="17106000" />
+      <workItem from="1620784568652" duration="87000" />
+      <workItem from="1620788078769" duration="26307000" />
     </task>
     <servers />
   </component>

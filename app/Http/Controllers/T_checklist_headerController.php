@@ -82,9 +82,9 @@ class T_checklist_headerController extends Controller
         $file1 = $folderPath1 . $signature1;
 
         file_put_contents($file1, $image1_base64);
-        $dt = new DateTime;
-        $now -> updated_at = $dt->format('Y-m-d H:i'); //Fomat Date and time
-        $now = $request->check_data;
+        //$dt = new DateTime;
+        //$now -> updated_at = $dt->format('Y-m-d H:i'); //Fomat Date and time
+        //$now = $request->check_data;
 
         request()->validate([
             'template_id' =>'required',
@@ -102,7 +102,7 @@ class T_checklist_headerController extends Controller
         $check_template_details = $request->input("checkbox");
         $requestData['signature'] = $signature;
         $requestData['signature_staff'] = $signature1;
-        $requestData['check_date'] = $now;
+        //$requestData['check_date'] = $now;
 
 
 
@@ -127,7 +127,7 @@ class T_checklist_headerController extends Controller
         foreach ( $check_template_details as $value){
 // Code Here
             $checklist_detail[] = array('checklist_id'=>$check_list_header->id,
-                'm_template_details_id'=>$value, 'checkflag'=>1);
+                'm_template_id'=>$check_list_header->template_id,'m_template_details_id'=>$value, 'checkflag'=>1);
         }
         T_checklist_details::insert($checklist_detail);
 
@@ -144,8 +144,8 @@ class T_checklist_headerController extends Controller
     }
 
 
-    public function searchlist(){
-        $searchdata = T_checklist_header::all();
+    public function searchlist(T_checklist_header $id){
+        $searchdata = T_checklist_header::find($id);
         $branches = M_branch::all();
         return view('/home',compact('searchdata','branches'));
     }
@@ -153,7 +153,7 @@ class T_checklist_headerController extends Controller
     public function search(Request $request){
         $search = $request->search;
         $branches = M_branch::all();
-
+        $t_checklist_header =T_checklist_header::all();
         $searchdata=T_checklist_header::where('student_name_kana','LIKE','%' .$search. '%')
             ->get();
 
@@ -162,17 +162,25 @@ class T_checklist_headerController extends Controller
 
 
 
-        return view('/home',compact('searchdata','branches'));
+        return view('/home',compact('searchdata','branches','t_checklist_header'));
+
 
 
     }
 
 
 
-    public function show(T_checklist_header $t_checklist_header)
+    public function show( $id)
     {
-        $t_checklist_header= T_checklist_header::all();
-        $t_checklist_details=T_checklist_details::all();
+
+
+        $t_checklist_header=T_checklist_header::find($id);
+        $t_checklist_details=T_checklist_details::where('checklist_id',$id)->get();
+
+
+
+
+
         return view('detail',compact('t_checklist_header','t_checklist_details'));
     }
 

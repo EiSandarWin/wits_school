@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home','T_checklist_headerController@searchlist');
 Route::post('/home', 'T_checklist_headerController@search')->name('search.route');
 Route::resource('/transaction','T_checklist_headerController');
-Route::resource('/detail','T_checklist_headerController');
+Route::get('detail/{id}','T_checklist_headerController@show')->name('detail');
 //Route::resource('/detail','T_checklist_detailsController');
 
 Route::post('/checklist','T_checklist_headerController@checkListTemplate');

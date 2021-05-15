@@ -8,7 +8,7 @@ class T_checklist_details extends Model
 {
     protected $table='t_checklist_details';
     protected $fillable=[
-      'checklist_id','m_template_details_id','checkflag'
+      'checklist_id','m_template_id','m_template_details_id','checkflag'
     ];
 
     public function header()
@@ -17,9 +17,14 @@ class T_checklist_details extends Model
 
     }
 
-    public function templates()
+    public function template()
     {
-        return $this->belongsToMany('App\M_template_details');
+        return $this->belongsTo('App\M_template_details','m_template_details_id');
+    }
+
+    public function templatename()
+    {
+        return $this->belongsTo('App\M_templates','m_template_id');
     }
 
 

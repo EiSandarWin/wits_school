@@ -55,13 +55,8 @@ class T_checklist_detailsController extends Controller
      * @param  \App\T_checklist_details  $t_checklist_details
      * @return \Illuminate\Http\Response
      */
-    public function show(T_checklist_details $t_checklist_details)
-    {
-
-        return view('detail',compact('t_checklist_details'));
 
 
-    }
 
     /**
      * Show the form for editing the specified resource.

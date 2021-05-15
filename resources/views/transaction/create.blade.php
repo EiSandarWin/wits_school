@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <table class="col-md-6 table-auto mt-4 ml-4">
+                <table class="col-md-8 table-auto mt-4 ml-4">
                     <thead>
                         <tr>
                             <th>ジャンル</th>
@@ -222,22 +222,7 @@
 
 
 
-
-
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
