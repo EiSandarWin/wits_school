@@ -16,35 +16,35 @@
         </div>
     @endif
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12 border border-secondary">
+    <div >
+        <div class="confirmarea">
 
             <form action="{{ route('transaction.store') }}" id="signature_form" method="POST">
                 @csrf
 
-                <div class="form-group row">
-                    <label for="fileInput" class="col-md-3 col-form-label text-md-right mt-1 my-1"> Template</label>
-                    <div class="col-md-6">
-                        <select class="form-control col-md-4" name="template_id"
+                <div class="templatearea" >
+                    <label for="fileInput" > </label>
+
+                        <select  name="template_id"
                                 id="template_id" onchange="getChecklist()">
-                            <option>Choose template</option>
+                            <option></option>
                         @foreach($templates as $template)
                         <option value="{{$template->id}}">{{$template->name}}</option>
                         @endforeach
                         </select>
-                    </div>
                 </div>
 
-                <table class="col-md-8 table-auto mt-4 ml-4">
-                    <thead>
+
+                <table class="maintable">
+                    <thead class="theadarea">
                         <tr>
-                            <th>ジャンル</th>
+                            <!--<th>ジャンル</th>-->
                             <th>チェック</th>
-                            <th>#</th>
+                            <th>No</th>
                             <th>確認事項</th>
                         </tr>
                     </thead>
-                    <tbody id="table_checklist"></tbody>
+                    <tbody  id="table_checklist"></tbody>
 
 {{--                    @foreach($template_details as $template_detail)--}}
 {{--                    <tr>--}}
@@ -66,109 +66,88 @@
 
 
 
-                <div class="form-group row mt-4">
-                    <label for="user_name" class="col-md-3 col-form-label text-md-right">{{  __('Staff Name')}}</label>
+                <div class="signarea">
+                <dl>
 
-                    <div class="col-md-6">
-                        <input id="user_name" type="text" name="user_name" placeholder="Staff Name">
+                    <dt><label for="student_name" >{{  __('氏名')}}</label></dt>
+                    <dd><input id="student_name" type="text" name="student_name" placeholder="氏名"></dd>
 
+                    @error('student_name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+
+                    <dt><label for="student_name_kana" >{{  __('氏名（カナ）')}}</label></dt>
+                    <dd> <input id="student_name_kana" type="text" name="student_name_kana" placeholder="氏名（カナ）"></dd>
+
+                    @error('student_name_kana')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
+
+                    <dt><label for="parent_name" >{{  __('保護者氏名')}}</label></dt>
+                    <dd> <input id="parent_name" type="text" name="parent_name" placeholder="保護者氏名"></dd>
+
+                    @error('parent_name')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+
+                    <dt><label for="signature" >{{  __('サイン（保護者）')}}</label></dt>
+                    <dd><div class="wrapper ">
+
+                            <canvas id="signature-pad" class="signature-pad"  ></canvas>
+                        </div>
+                        <input type="hidden" name="signature" id="signature"><br>
+                        <button type="button" class="btn btn-primary" id="clear">Clear</button></dd>
+
+
+
+
+                    <dt><label for="user_name" >{{  __('スタッフ名')}}</label></dt>
+                    <dd><input id="user_name" type="text" name="user_name" placeholder="スタッフ名"></dd>
 
                         @error('user_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+
+
+
+                    <dt><label for="signature" >{{  __('サイン（スタッフ）')}}</label></dt>
+
+                    <dd><div class="wrapper ">
+                        <canvas id="signature-pad1" class="signature-pad"  ></canvas>
                     </div>
-                </div>
+                <input type="hidden" name="signature1" id="signature1">
 
-                <div class="form-group row">
-                    <label for="signature" class="col-md-3 col-form-label text-md-right">{{  __('Staff Signature')}}</label>
-                </div>
+                        <button type="button" class="btn btn-primary" id="clear1">Clear</button></dd>
 
-                <div class="wrapper ">
-                    <canvas id="signature-pad1" class="signature-pad"  width=500 height=200></canvas>
-                </div>
-                <div>
-                    <input type="hidden" name="signature1" id="signature1">
-                </div>
-                <button type="button" class="btn-primary" id="clear1">Clear</button>
 
-                <div class="form-group row">
 
-                    <label for="fileInput" class="col-md-3 col-form-label text-md-right mt-4"> Branch Name</label>
-                    <div class="col-md-6 mt-4">
-                        <select class="form-control col-md-4" name="branch_id">
+                    <dt><label for="fileInput" > 教室名</label></dt>
+
+                        <dd><select  name="branch_id">
                         @foreach($branches as $branch)
                         <option value="{{$branch->id}}">{{$branch->name}}</option>
                         @endforeach
-                        </select>
-                    </div>
-                </div>
+                        </select></dd>
+                </dl>
+                    <div class="clr"> </div>
 
 
-                <div class="form-group row">
-                    <label for="student_name" class="col-md-3 col-form-label text-md-right">{{  __('Student Name')}}</label>
-
-                    <div class="col-md-6">
-                        <input id="student_name" type="text" name="student_name" placeholder="Student Name">
-
-
-                        @error('student_name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="student_name_kana" class="col-md-3 col-form-label text-md-right">{{  __('Student Name(カナ)')}}</label>
-
-                    <div class="col-md-6">
-                        <input id="student_name_kana" type="text" name="student_name_kana" placeholder="Student Name(カナ)">
-
-
-                        @error('student_name_kana')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="parent_name" class="col-md-3 col-form-label text-md-right">{{  __('Parent Name')}}</label>
-
-                    <div class="col-md-6">
-                        <input id="parent_name" type="text" name="parent_name" placeholder="Parent Name">
-
-
-                        @error('parent_name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="signature" class="col-md-3 col-form-label text-md-right">{{  __('Signature')}}</label>
-                </div>
-
-
-
-
-                <div class="wrapper ">
-
-                    <canvas id="signature-pad" class="signature-pad"  width=500 height=200></canvas>
-                </div>
-                <div>
-                    <input type="hidden" name="signature" id="signature">
-                </div>
             </form>
+                    <div class="btnarea">
+                        <button type="button" class="btn btn-primary" id="save">Save</button>
+                    </div>
 
-            <button type="button" class="btn btn-primary" id="save">Save</button>
-            <button type="button" class="btn btn-primary" id="clear">Clear</button>
 
             <script type="text/javascript">
 
@@ -257,12 +236,12 @@
                 let tr = "";
                     for(let i=0; i<data.length; i++){
                         tr = tr +
-                            "<tr><td>" + template.text() + "</td>"+
+                            //"<tr><td class='genre-check'>" + template.text() + "</td>"+
 
-                            "<td> <input type='checkbox' name='checkbox[]' value="+data[i]["id"]+"></td>"+
+                            "<td class='genre-check'> <input type='checkbox' name='checkbox[]' value="+data[i]["id"]+"></td>"+
 
-                            "<td>" +  data[i]["id"] + "</td>"+
-                            "<td>" + data[i]["description"] + "</td></tr>"
+                            "<td class='genre-check'>" +  data[i]["id"] + "</td>"+
+                            "<td >" + data[i]["description"] + "</td></tr>"
 
                     }
                     document.getElementById("table_checklist").innerHTML = tr

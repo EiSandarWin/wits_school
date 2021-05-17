@@ -3,20 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1852d935-ff16-4f94-8f36-f720362b2e5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_detailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/T_checklist_headerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/M_template_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/M_template_details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/M_templates.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/M_templates.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/T_checklist_details.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/T_checklist_header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/T_checklist_header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_020143_create_t_checklist_header_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_30_125742_create_t_checklist_details.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/userapp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/userapp.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/m_branch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/m_branch/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/transaction/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +176,7 @@
       <workItem from="1620635041727" duration="17106000" />
       <workItem from="1620784568652" duration="87000" />
       <workItem from="1620788078769" duration="26307000" />
+      <workItem from="1621209624016" duration="23589000" />
     </task>
     <servers />
   </component>
@@ -201,16 +194,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/home.blade.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

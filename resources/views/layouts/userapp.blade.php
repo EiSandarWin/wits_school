@@ -1,5 +1,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
+<meta charset="utf-8">
+
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
@@ -21,63 +23,103 @@
             }
         });
     </script>
-</head>
+
 <style>
 
-        table,th, td{
-            border: 1px solid black;
-            border-collapse: collapse;
+    canvas {
+        border:1px solid #555555;
+        width: 500px;
+        height:200px;
+    }
 
+
+    body {
+        font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif";
+    }
+
+    .confirmarea {
+        margin: 30px 5px;
+        border: 3px solid #cccccc;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .templatearea {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .maintable {
+        margin: 0px auto 50px auto ;
+        background-color: #eeeeee;
+    }
+
+    .maintable td {
+        padding: 8px 2px 8px 8px;
+    }
+
+    .maintable tr {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .theadarea th {
+        font-size: 80%;
+        text-align: center;
+        color: #ffffff;
+        background-color: #036EB8;
+        white-space: nowrap;
+        padding: 5px 5px;
+    }
+
+    .genre-check {
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .signarea {
+        max-width: 690px;
+        margin: 0px auto;
+    }
+
+    dt {
+        float: left;
+        clear: left;
+        margin-right: 10px;
+        width: 180px;
+        text-align: right;
+        color: #888888;
+    }
+
+    dd {
+        float: left;
+        max-width: 480px;
+    }
+
+    .clr {
+        clear: both;
+    }
+
+    .btnarea {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+        dt {
+            text-align: left;
+            width: 100%;
         }
-        th, td{
-            padding: 15px;
+
+        dd {
+            width: 100%;
+            margin-top: 0px;
+            margin-bottom: 30px;
         }
 
-
-
-
-        div#img-box{
-        border:3px solid #000;
-        width:500px;
-        }
-
-        div#btn-box{
-        position: fixed;
-        bottom :0px;
-        }
-
-        .kbw-signature { width: 100%; height: 180px;}
-        #signaturePad canvas{
-        width: 100% !important;
-        height: auto;
-        }
-
-        .wrapper {
-            position: relative;
-            width: 500px;
-            height: 200px;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        img {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .signature-pad {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width:500px;
-            height:200px;
-
-        }
         canvas {
-            border:3px solid #000;
+            width: 100%;
         }
+    }
     </style>
 
 
@@ -87,7 +129,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-dark">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/transaction') }}">
-                    Wits Private School(Customer Page)
+                   WITS クラウド チェックシート
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

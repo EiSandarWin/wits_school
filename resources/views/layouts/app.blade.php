@@ -17,14 +17,92 @@
 
 <style>
 
-    table,th, td{
-        border: 1px solid black;
-        border-collapse: collapse;
+body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif";
+}
 
+.confirmarea {
+    margin: 30px 5px;
+    border: 3px solid #cccccc;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.templatearea {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.maintable {
+    margin: 0px auto 50px auto ;
+    background-color: #eeeeee;
+}
+
+.maintable td {
+    padding: 8px 2px 8px 8px;
+}
+
+.maintable tr {
+    border-bottom: 1px dashed #cccccc;
+}
+
+.theadarea th {
+    font-size: 80%;
+    text-align: center;
+    color: #ffffff;
+    background-color: #036EB8;
+    white-space: nowrap;
+    padding: 5px 5px;
+}
+
+.genre-check {
+    white-space: nowrap;
+    text-align: center;
+}
+.signarea {
+    max-width: 690px;
+    margin: 0px auto;
+}
+
+dt {
+    float: left;
+    clear: left;
+    margin-right: 10px;
+    width: 180px;
+    text-align: right;
+    color: #888888;
+}
+
+dd {
+    float: left;
+    max-width: 480px;
+}
+
+.clr {
+    clear: both;
+}
+
+.btnarea {
+    text-align: center;
+}
+
+.btnarea {
+    text-align: center;
+}
+@media screen and (max-width: 1000px) {
+
+    dt {
+        text-align: left;
+        width: 100%;
     }
-    th, td{
-        padding: 15px;
+
+    dd {
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 30px;
     }
+}
+
 
 </style>
 
