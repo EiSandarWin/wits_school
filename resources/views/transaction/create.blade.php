@@ -16,7 +16,7 @@
         </div>
     @endif
 <div class="container">
-    <div >
+
         <div class="confirmarea">
 
             <form action="{{ route('transaction.store') }}" id="signature_form" method="POST">
@@ -63,11 +63,13 @@
 
                 </table>
 
+               <p align="right">※については必要に応じてご説明いたします。</p>
+
 
 
 
                 <div class="signarea">
-                <dl>
+
 
                     <dt><label for="student_name" >{{  __('氏名')}}</label></dt>
                     <dd><input id="student_name" type="text" name="student_name" placeholder="氏名"></dd>
@@ -100,12 +102,11 @@
 
 
                     <dt><label for="signature" >{{  __('サイン（保護者）')}}</label></dt>
-                    <dd><div class="wrapper ">
-
-                            <canvas id="signature-pad" class="signature-pad"  ></canvas>
+                    <dd><div class="wrapper">
+                            <canvas id="signature-pad" class="signature-pad" width=500 height=200  ></canvas>
                         </div>
                         <input type="hidden" name="signature" id="signature"><br>
-                        <button type="button" class="btn btn-primary" id="clear">Clear</button></dd>
+                        <button type="button" class="btn btn-primary" id="clear">アクション</button></dd>
 
 
 
@@ -123,12 +124,12 @@
 
                     <dt><label for="signature" >{{  __('サイン（スタッフ）')}}</label></dt>
 
-                    <dd><div class="wrapper ">
-                        <canvas id="signature-pad1" class="signature-pad"  ></canvas>
+                    <dd><div class="wrapper">
+                        <canvas id="signature-pad1" class="signature-pad" width=500 height=200 ></canvas>
                     </div>
                 <input type="hidden" name="signature1" id="signature1">
 
-                        <button type="button" class="btn btn-primary" id="clear1">Clear</button></dd>
+                        <button type="button" class="btn btn-primary" id="clear1">アクション</button></dd>
 
 
 
@@ -139,13 +140,13 @@
                         <option value="{{$branch->id}}">{{$branch->name}}</option>
                         @endforeach
                         </select></dd>
-                </dl>
+
                     <div class="clr"> </div>
 
 
             </form>
                     <div class="btnarea">
-                        <button type="button" class="btn btn-primary" id="save">Save</button>
+                        <button type="button" class="btn btn-primary" id="save">保存</button>
                     </div>
 
 
@@ -205,7 +206,7 @@
 
 
 
-        </div>
+
 
 
 

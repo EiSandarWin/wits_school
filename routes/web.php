@@ -22,11 +22,9 @@ Route::get('/', function () {
 
 //auth
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home','T_checklist_headerController@searchlist');
-Route::post('/home', 'T_checklist_headerController@search')->name('search.route');
+
 Route::resource('/transaction','T_checklist_headerController');
-Route::get('detail/{id}','T_checklist_headerController@show')->name('detail');
+
 //Route::resource('/detail','T_checklist_detailsController');
 
 Route::post('/checklist','T_checklist_headerController@checkListTemplate');
@@ -40,7 +38,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('m_template_details','M_template_detailsController');
     Route::resource('m_templates','M_templatesController');
     Route::resource('m_branch','M_branchController');
-
+    Route::get('detail/{id}','T_checklist_headerController@show')->name('detail');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home','T_checklist_headerController@searchlist');
+    Route::post('/home', 'T_checklist_headerController@search')->name('search.route');
 });
 
 //

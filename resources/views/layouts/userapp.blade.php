@@ -70,6 +70,9 @@
         white-space: nowrap;
         padding: 5px 5px;
     }
+    .textarea{
+        text-align: right;
+    }
 
     .genre-check {
         white-space: nowrap;
@@ -80,6 +83,7 @@
         max-width: 690px;
         margin: 0px auto;
     }
+
 
     dt {
         float: left;
@@ -101,6 +105,33 @@
 
     .btnarea {
         text-align: center;
+    }
+
+    .wrapper {
+        position: relative;
+        width: 500px;
+        height: 200px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .signature-pad {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width:500px;
+        height:200px;
+    }
+
+    #signaturePad canvas{
+        width: 100% !important;
+        height: auto;
+    }
+
+    #signaturePad1 canvas{
+        width: 100% !important;
+        height: auto;
     }
 
     @media screen and (max-width: 1000px) {

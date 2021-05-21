@@ -7,8 +7,8 @@
         <form method="POST" action="{{ route('search.route') }}" class="searchbox" role="search">
             {{csrf_field()}}
 
-            <input type="text" name="search" class="search" id="search" placeholder="Name with kana">
-            <input type="submit" name="submit" class="submit" value="search" >
+            <input type="text" name="search" class="search" id="search" placeholder="氏名（カナ）">
+            <input type="submit" name="submit" class="submit" value="検索" >
 
 
             <!--<div class="col-sm-3">
@@ -24,12 +24,12 @@
         <table class="maintable">
             <thead class="theadarea">
                 <tr>
-                    <th >Student Name</th>
-                    <th >Student Name(カナ)</th>
-                    <th >Parent Name</th>
-                    <th >Branch Name</th>
-                    <th >Staff Name</th>
-                    <th width="120" >Action</th>
+                    <th >氏名</th>
+                    <th >氏名（カナ）</th>
+                    <th >保護者氏名</th>
+                    <th >スタッフ名</th>
+                    <th >教室名</th>
+                    <th width="120" >アクション</th>
 
 
 
@@ -42,13 +42,14 @@
                     <td>{{$value->student_name}}</td>
                     <td>{{$value->student_name_kana}}</td>
                     <td>{{$value->parent_name}}</td>
-                    <td>{{$value->branch->name}}</td>
                     <td>{{$value->user_name}}</td>
+                    <td>{{$value->branch->name}}</td>
+
 
                     <td>
 
 
-                        <a class="btn btn-success btn-sm" href="{{url('detail', $value->id)}}" >Detail</a>
+                        <a class="btn btn-success btn-sm" href="{{url('detail', $value->id)}}" >詳細</a>
 
                     </td>
 

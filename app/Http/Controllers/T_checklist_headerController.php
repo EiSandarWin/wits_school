@@ -49,7 +49,7 @@ class T_checklist_headerController extends Controller
 
 
 
-        $folderPath = public_path('studentupload/' );
+        $folderPath = public_path('parentupload/' );
 
         $image_parts = explode(";base64,", $request->signature);
 
@@ -103,12 +103,6 @@ class T_checklist_headerController extends Controller
         $requestData['signature'] = $signature;
         $requestData['signature_staff'] = $signature1;
         //$requestData['check_date'] = $now;
-
-
-
-
-
-
 
 
 

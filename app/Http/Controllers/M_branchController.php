@@ -34,7 +34,7 @@ class M_branchController extends Controller
     {
         $m_branches = M_branch::orderBy('id','asc')->paginate(10);
         return view('m_branch.index',compact('m_branches'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
 
     }
 
