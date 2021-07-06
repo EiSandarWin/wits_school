@@ -126,8 +126,8 @@ dd {
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link text-white " href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link text-white " href="{{ route('login') }}">{{ __('ログイン') }}</a></li>
+                            <li><a class="nav-link text-white" href="{{ route('register') }}">{{ __('登録') }}</a></li>
                         @else
                             <li><a class="nav-link text-white" href="{{ route('m_branch.index') }}">Manage Branches</a></li>
                             <li><a class="nav-link text-white" href="{{ route('users.index') }}">Manage Users</a></li>
@@ -144,7 +144,7 @@ dd {
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('ログアウト') }}
                                     </a>
 
 

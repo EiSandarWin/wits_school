@@ -48,7 +48,7 @@
                     @csrf
                     @method('DELETE')
                     @can('m_template_details-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure want to delete?')">Delete</button>
                     @endcan
                 </form>
 	        </td>

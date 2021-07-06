@@ -33,7 +33,8 @@ class UserController extends Controller
     {
         $branches = M_branch::all();
 
-        $roles = Role::pluck('name','name')->all();
+        $roles = Rol
+        e::pluck('name','name')->all();
         return view('users.create',compact('roles','branches'));
     }
 

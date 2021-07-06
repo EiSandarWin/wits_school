@@ -27,14 +27,14 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            
+
             <th width="280px">Action</th>
         </tr>
 	    @foreach ($m_templates as $m_template)
 	    <tr>
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $m_template->name }}</td>
-	        
+
 	        <td>
                 <form action="{{ route('m_templates.destroy',$m_template->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('m_templates.show',$m_template->id) }}">Show</a>
@@ -46,7 +46,7 @@
                     @csrf
                     @method('DELETE')
                     @can('m_templates-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick ="return confirm('Are you sure want to delete?')">Delete</button>
                     @endcan
                 </form>
 	        </td>

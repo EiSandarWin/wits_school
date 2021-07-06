@@ -44,13 +44,13 @@
                 <dd>{{ $t_checklist_header->parent_name }}</dd>
 
                 <dt><strong>サイン（保護者）</strong></dt>
-                <dd><img src="{{asset('parentupload/' .$t_checklist_header->signature)}}"  width="180" height="100"  class="border"  alt=""></dd>
+                <dd><img src="{{ asset('parentupload/' .$t_checklist_header->signature)}}"  width="180" height="100"  class="border"  alt=""></dd>
 
                 <dt><strong>スタッフ名</strong></dt>
                 <dd>{{ $t_checklist_header->user_name}}</dd>
 
                 <dt><strong>サイン（スタッフ）</strong></dt>
-                <dd><img src="{{asset('staffupload/' .$t_checklist_header->signature_staff)}}"  width="180" height="100"  class="border"  alt=""></dd>
+                <dd><img src="{{ asset('staffupload/' .$t_checklist_header->signature_staff)}}"  width="180" height="100"  class="border"  alt=""></dd>
 
                 <dt><strong>教室名</strong></dt>
                 <dd>{{ $t_checklist_header->branch->name }}</dd>

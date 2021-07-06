@@ -61,7 +61,7 @@ class T_checklist_headerController extends Controller
 
         $signature = uniqid() . '.'.$image_type;
 
-        $file = $folderPath . $signature;
+        $file = $folderPath . $signature ;
 
         file_put_contents($file, $image_base64);
 
@@ -79,7 +79,7 @@ class T_checklist_headerController extends Controller
 
         $signature1 = uniqid() . '.'.$image1_type;
 
-        $file1 = $folderPath1 . $signature1;
+        $file1 = $folderPath1 . $signature1 ;
 
         file_put_contents($file1, $image1_base64);
         //$dt = new DateTime;
@@ -149,7 +149,11 @@ class T_checklist_headerController extends Controller
         $branches = M_branch::all();
         $t_checklist_header =T_checklist_header::all();
         $searchdata=T_checklist_header::where('student_name_kana','LIKE','%' .$search. '%')
-            ->get();
+                                        ->orwhere('student_name', 'LIKE' , '%' .$search. '%')
+                                        ->orwhere('parent_name', 'LIKE', '%' .$search. '%')
+                                        ->orwhere('user_name', 'LIKE', '%' .$search. '%')
+
+                                        ->get();
 
         //dd($searchdata);
 
