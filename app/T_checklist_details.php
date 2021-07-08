@@ -19,7 +19,7 @@ class T_checklist_details extends Model
 
     public function template()
     {
-        return $this->belongsTo('App\M_template_details','m_template_details_id');
+        return $this->belongsTo('App\M_template_details','m_template_details_id')->withTrashed();
     }
 
     public function templatename()

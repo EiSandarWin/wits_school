@@ -18,7 +18,7 @@ class CreateMTemplateDetailsTable extends Migration
             $table->BigInteger('template_id')->unsigned();
             $table->string('description');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreign('template_id')->references('id')->on('m_templates')->onDelete('cascade');
         });
     }

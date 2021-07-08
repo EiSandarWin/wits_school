@@ -19,6 +19,6 @@ class T_checklist_header extends Model
 
     public function branch()
     {
-        return $this->belongsTo('App\M_branch');
+        return $this->belongsTo('App\M_branch')->withTrashed();
     }
 }

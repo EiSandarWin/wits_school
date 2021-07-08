@@ -17,7 +17,7 @@ class M_templates extends Model
 
     protected $dates = ['deleted_at'];
 
-     public function template_details()
+    public function template_details()
     {
         return $this->hasMany('App\M_template_details');
     }

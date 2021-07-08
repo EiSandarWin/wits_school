@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->BigInteger('branch_id')->unsigned();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('branch_id')->references('id')->on('m_branch')->onDelete('cascade');

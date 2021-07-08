@@ -16,6 +16,7 @@ class CreateMBranchTable extends Migration
         Schema::create('m_branch', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

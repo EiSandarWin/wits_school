@@ -19,7 +19,7 @@ class CreateAdminUserSeeder extends Seeder
             'name_kana' => 'アド',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
-            'branch_id' =>('111')
+            'branch_id' =>('10')
         ]);
 
         $role = Role::create(['name' => 'Admin']);
